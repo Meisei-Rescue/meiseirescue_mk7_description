@@ -1,0 +1,493 @@
+<?xml version="1.0" ?>
+<robot name="mk7" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find meiseirescue_mk7_description)/urdf/commonmaterials.xacro" />
+<xacro:include filename="$(find meiseirescue_mk7_description)/urdf/mk7.trans" />
+
+<xacro:material_fanuc_silver/>
+<xacro:material_fanuc_black/>
+<xacro:material_fanuc_blue/>
+<xacro:material_invisible/>
+<link name="base_link">
+  <inertial>
+    <origin xyz="6.800860772596329e-14 3.691305239142602e-18 0.007330088098766174" rpy="0 0 0"/>
+    <mass value="0.10740993249483455"/>
+    <inertia ixx="3.3e-05" iyy="4.4e-05" izz="7.3e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="chassis_1">
+  <inertial>
+    <origin xyz="-0.2035222244038202 -0.024165330066941725 -0.10859235337951909" rpy="0 0 0"/>
+    <mass value="12.4443653649825"/>
+    <inertia ixx="0.175478" iyy="0.551546" izz="0.685152" ixy="0.002006" iyz="-0.000491" ixz="-0.003111"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.025 -0.027 -0.005" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/chassis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.025 -0.027 -0.005" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/chassis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flipper_fl_1">
+  <inertial>
+    <origin xyz="0.16416217495699445 0.019086504793503267 -1.0901843316979409e-10" rpy="0 0 0"/>
+    <mass value="7.110688209234962"/>
+    <inertia ixx="0.011789" iyy="0.137585" izz="0.128141" ixy="0.000103" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0875 -0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0875 -0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flipper_fr_1">
+  <inertial>
+    <origin xyz="0.16416217495687 -0.01908650479349916 1.0903888902902281e-10" rpy="0 0 0"/>
+    <mass value="7.110688209234962"/>
+    <inertia ixx="0.011789" iyy="0.137585" izz="0.128141" ixy="-0.000103" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0875 0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0875 0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flipper_rl_1">
+  <inertial>
+    <origin xyz="-0.1641621749568385 0.019086504793282333 1.0902069524920677e-10" rpy="0 0 0"/>
+    <mass value="7.110688209234962"/>
+    <inertia ixx="0.011789" iyy="0.137585" izz="0.128141" ixy="-0.000103" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.4525 -0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_rl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.4525 -0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_rl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flipper_rr_1">
+  <inertial>
+    <origin xyz="-0.16416217495701085 -0.019086504793274534 -1.0883946521822452e-10" rpy="0 0 0"/>
+    <mass value="7.110688209234962"/>
+    <inertia ixx="0.011789" iyy="0.137585" izz="0.128141" ixy="0.000103" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.453 0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.453 0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flipper_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flippercrawler_fl_1">
+  <inertial>
+    <origin xyz="-0.24749999999992917 0.20800000000002494 -0.09949999999998665" rpy="0 0 0"/>
+    <mass value="0.019002179675077047"/>
+    <inertia ixx="8.4e-05" iyy="0.000544" izz="0.000463" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.4075 -0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.4075 -0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flippercrawler_fr_1">
+  <inertial>
+    <origin xyz="-0.24750000000005357 0.24599999999997918 0.09950000000000733" rpy="0 0 0"/>
+    <mass value="0.019002179675077047"/>
+    <inertia ixx="8.4e-05" iyy="0.000544" izz="0.000463" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.4075 0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.4075 0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flippercrawler_rr_1">
+  <inertial>
+    <origin xyz="-0.9330000000000871 0.24600000000020386 -0.09949999999980763" rpy="0 0 0"/>
+    <mass value="0.019002179675077047"/>
+    <inertia ixx="8.4e-05" iyy="0.000544" izz="0.000463" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.7725 0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0.7725 0.192 0.099" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="flippercrawler_rl_1">
+  <inertial>
+    <origin xyz="-0.9324999999999146 0.20799999999980398 0.09949999999998912" rpy="0 0 0"/>
+    <mass value="0.019002179675077047"/>
+    <inertia ixx="8.4e-05" iyy="0.000544" izz="0.000463" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.773 -0.192 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_rl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.32 -0.003 0.199" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/flippercrawler_rl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_1">
+  <inertial>
+    <origin xyz="-0.2699999999999148 -0.03949999999995871 -1.1393663790215669e-14" rpy="0 0 0"/>
+    <mass value="14.89044671544391"/>
+    <inertia ixx="0.036949" iyy="0.059938" izz="0.036949" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1825 -0.108 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/wheel_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="invisible"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1825 -0.108 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/wheel_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_1">
+  <inertial>
+    <origin xyz="-0.27000000000007657 0.03949999999972878 1.892097589717423e-13" rpy="0 0 0"/>
+    <mass value="14.89044671544391"/>
+    <inertia ixx="0.036949" iyy="0.059938" izz="0.036949" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.183 0.108 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/wheel_l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="invisible"/>
+  </visual>
+  <collision>
+    <origin xyz="0.183 0.108 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/wheel_l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="maincrawler_right_1">
+  <inertial>
+    <origin xyz="-0.2699999999999806 -0.08178094300002264 7.563394355258879e-15" rpy="0 0 0"/>
+    <mass value="0.10724325485593858"/>
+    <inertia ixx="0.000679" iyy="0.005405" izz="0.005098" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0875 0.034 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/maincrawler_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0875 0.034 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/maincrawler_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="maincrawler_left_1">
+  <inertial>
+    <origin xyz="-0.26999999999998064 0.08178094299996957 7.716050021144838e-15" rpy="0 0 0"/>
+    <mass value="0.10724325485593858"/>
+    <inertia ixx="0.000679" iyy="0.005405" izz="0.005098" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0875 -0.034 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/maincrawler_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0875 -0.034 0.0995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://meiseirescue_mk7_description/meshes/maincrawler_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="base_chassis" type="fixed">
+  <origin xyz="0.025 0.027 0.005" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="chassis_1"/>
+</joint>
+
+<joint name="flipper_fl_joint" type="continuous">
+  <origin xyz="0.0625 0.165 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="flipper_fl_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="flipper_fr_joint" type="continuous">
+  <origin xyz="0.0625 -0.219 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="flipper_fr_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="flipper_rl_joint" type="continuous">
+  <origin xyz="-0.4775 0.165 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="flipper_rl_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="flipper_rr_joint" type="continuous">
+  <origin xyz="-0.478 -0.219 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="flipper_rr_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="flipper_crawler_fl" type="fixed">
+  <origin xyz="0.320 0.0 0.0" rpy="0 0 0"/>
+  <parent link="flipper_fl_1"/>
+  <child link="flippercrawler_fl_1"/>
+</joint>
+
+<joint name="flipper_crawler_fr" type="fixed">
+  <origin xyz="0.320 0.0 0.0" rpy="0 0 0"/>
+  <parent link="flipper_fr_1"/>
+  <child link="flippercrawler_fr_1"/>
+</joint>
+
+<joint name="flipper_crawler_rl" type="fixed">
+  <origin xyz="-0.320 0.0 0.0" rpy="0 0 0"/>
+  <parent link="flipper_rl_1"/>
+  <child link="flippercrawler_rl_1"/>
+</joint>
+
+<joint name="flipper_crawler_rr" type="fixed">
+  <origin xyz="-0.320 0.0 0.0" rpy="0 0 0"/>
+  <parent link="flipper_rr_1"/>
+  <child link="flippercrawler_rr_1"/>
+</joint>
+
+<joint name="leftcrawler_joint" type="continuous">
+  <origin xyz="-0.2075 0.16 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="wheel_l_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="rightcrawler_joint" type="continuous">
+  <origin xyz="-0.2075 -0.214 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="wheel_r_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="maincrawler_r" type="fixed">
+  <origin xyz="0.0625 -0.061 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="maincrawler_right_1"/>
+</joint>
+
+<joint name="maincrawler_l" type="fixed">
+  <origin xyz="0.0625 0.007 -0.1045" rpy="0 0 0"/>
+  <parent link="chassis_1"/>
+  <child link="maincrawler_left_1"/>
+</joint>
+
+<!-- <transmission name="flipper_fl_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="flipper_fl_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="flipper_fl_joint_actr">
+     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+    <mechanicalReduction>1.5</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="flipper_fr_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="flipper_fr_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="flipper_fr_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+    <mechanicalReduction>1.5</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="flipper_rl_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="flipper_rl_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="flipper_rl_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+    <mechanicalReduction>1.5</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="flipper_rr_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="flipper_rr_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="flipper_rr_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+    <mechanicalReduction>1.5</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="leftcrawler_joint_tran">
+  <motorTorqueConstant>52.5</motorTorqueConstant>
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="leftcrawler_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="leftcrawler_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+    <mechanicalReduction>-1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rightcrawler_joint_tran">
+  <motorTorqueConstant>52.5</motorTorqueConstant>
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rightcrawler_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rightcrawler_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PosVelJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission> -->
+
+</robot>

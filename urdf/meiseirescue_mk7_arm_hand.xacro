@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot name="meiseirescue_mk7" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find meiseirescue_mk7_description)/urdf/commonmaterials.xacro" />
+  <xacro:include filename="$(find meiseirescue_mk7_description)/urdf/materials.xacro" />
+
+  <!-- Include armbasicmk2 URDF -->
+  <xacro:include filename="$(find meiseirescue_mk7_description)/urdf/armbasicmk2_rf_test.xacro" />
+
+  <!-- Include gripper URDF -->
+  <xacro:include filename="$(find meiseirescue_mk7_description)/urdf/abmk2_handcamera.xacro"/>
+
+  <xacro:include filename="$(find meiseirescue_mk7_description)/urdf/mk7_rostest2.xacro"/>
+  <!-- Base fixed joint -->
+  <joint name="hand_fixed" type="fixed">
+    <origin xyz="0.048 -45.0e-03 0" rpy="0 0 0"/>
+    <parent link="frp42_h020_1"/>
+    <child link="hand_shaft_d50_1"/>
+  </joint>
+  
+    <joint name="mk7_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="mk7_base_link"/>
+  </joint>
+</robot>

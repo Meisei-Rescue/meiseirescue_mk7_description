@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="port" default="/dev/ttyUSB0" />
+
+  <arg name="joy_dev" default="/dev/input/js0" />
+  <!-- Choose from: ps4_wired, ps4_wireless, elecom_small -->
+  <arg name="joypad_type" default="ps4_wired" />
+  <arg name="joint_states_topic" default="joint_states" />
+
+  <arg name="model" default="$(find meiseirescue_mk7_description)/urdf/mk7.xacro"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+  <arg name="gui" default="true"/>
+  <arg name="rvizconfig" default="$(find meiseirescue_mk7_description)/config/urdf.rviz"/>
+  <param name="use_gui" value="$(arg gui)"/>
+
+  <node pkg="mofpy" type="mofpy_node.py" name="mofpy" output="screen" >
+    <remap from="joint_states" to="$(arg joint_states_topic)" />
+    <rosparam command="load" file="$(find mofpy)/config/common.yaml" />
+    <!-- <rosparam command="load" file="$(find mofpy)/config/presets/mrmk7_arm.yaml" /> -->
+    <rosparam command="load" file="$(find mofpy)/config/presets/mofpy_flipper.yaml" />
+    <rosparam command="load" file="$(find mofpy)/config/joypad/$(arg joypad_type).yaml" />
+    <!-- <remap from="cmd_vel" to="mr_mk7/diff_drive_controller/cmd_vel"/> -->
+  </node>
+
+  <node pkg="joy" type="joy_node" name="joy" >
+    <param name="dev" value="$(arg joy_dev)" />
+    <param name="deadzone" value="0" />
+    <param name="autorepeat_rate" value="100" />
+  </node>
+
+  <!-- Hardware driver -->
+  <node name="layered_hardware_node" pkg="layered_hardware" type="layered_hardware_node" output="screen">
+    <rosparam>
+      control_frequency: 20
+      use_expected_period: true
+      layers: [joint_limits_layer, transmission_layer,  dynamixel_actuator_layer]
+
+      joint_limits_layer:
+        type: layered_hardware_extensions/ExtendedJointLimitsLayer
+
+      transmission_layer:
+        type: layered_hardware/TransmissionLayer
+
+      dynamixel_actuator_layer:
+        type: layered_hardware_dynamixel/DynamixelActuatorLayer
+        serial_interface: /dev/ttyUSB0
+        baudrate: 1000000
+        actuators:
+          flipper_fl_joint_actr:
+            id: 11
+            torque_constant: 8.22
+            operating_mode_map:
+              flipper_control: velocity
+              reboot_controller: reboot
+            additional_states:
+              - Present_Input_Voltage
+              - Present_Temperature
+            additional_commands:
+              - LED
+          flipper_fr_joint_actr:
+            id: 12
+            torque_constant: 8.22
+            operating_mode_map:
+              flipper_control: velocity
+              reboot_controller: reboot
+            additional_states:
+              - Present_Input_Voltage
+              - Present_Temperature
+            additional_commands:
+              - LED
+          flipper_rl_joint_actr:
+            id: 13
+            torque_constant: 8.22
+            operating_mode_map:
+              flipper_control: velocity
+              reboot_controller: reboot
+            additional_states:
+              - Present_Input_Voltage
+              - Present_Temperature
+            additional_commands:
+              - LED
+          flipper_rr_joint_actr:
+            id: 14
+            torque_constant: 8.22
+            operating_mode_map:
+              flipper_control: velocity
+              reboot_controller: reboot
+            additional_states:
+              - Present_Input_Voltage
+              - Present_Temperature
+            additional_commands:
+              - LED
+    </rosparam>
+  </node>
+
+  <!-- Controller parameters -->
+  <rosparam>
+    joint_state_controller:
+      type: joint_state_controller/JointStateController
+      publish_rate: 20
+
+    additional_state_controller:
+      type: integer_controllers/Int32StateController
+      interval: 1.0
+
+    led_controller:
+      type: integer_controllers/Int32Controller
+      handle: flipper_fl_joint_actr/LED
+
+    reboot_controller:
+      type: empty_controller/EmptyController
+
+    flipper_control:
+      type: "velocity_controllers/JointGroupVelocityController"
+      joints:
+        - flipper_fl_joint
+        - flipper_fr_joint
+        - flipper_rl_joint
+        - flipper_rr_joint
+  </rosparam>
+
+<!-- Controller manager -->
+  <node name="controller_manager" pkg="controller_manager" type="controller_manager" output="screen" />
+
+  <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" output="screen" />
+  <node name="flipper_control_spawner" pkg="controller_manager" type="spawner" args="flipper_control" output="screen" />
+  
+<!-- rviz -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+
+<!-- convert node -->
+  <!-- <node name="flipper_bridge" pkg="flipper_control_bridge" type="flipper_bridge_node.py" output="screen"/> -->
+  <node name="flipper_msgs" pkg="flipper_msgs" type="flipper_bridge_node.py" output="screen"/>
+
+</launch>

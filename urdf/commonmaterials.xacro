@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find meiseirescue_mk7_description)/urdf/common_colors.xacro"/>
+
+  <xacro:macro name="material_fanuc_yellow">
+    <material name="yellow">
+      <color rgba="${color_fanuc_yellow}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_white">
+    <material name="white">
+      <color rgba="${color_fanuc_white}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_grey">
+    <material name="grey">
+      <color rgba="${color_fanuc_grey}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_gray24">
+    <material name="gray24">
+      <color rgba="${color_fanuc_gray24}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_gray28">
+    <material name="gray28">
+      <color rgba="${color_fanuc_gray28}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_gray31">
+    <material name="gray31">
+      <color rgba="${color_fanuc_gray31}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_gray40">
+    <material name="gray40">
+      <color rgba="${color_fanuc_gray40}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_yellow1">
+    <material name="yellow1">
+      <color rgba="${color_fanuc_yellow1}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_BAB0B0">
+    <material name="BAB0B0">
+      <color rgba="${color_fanuc_BAB0B0}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_E6E6E6">
+    <material name="E6E6E6">
+      <color rgba="${color_fanuc_E6E6E6}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_00FF73">
+    <material name="00FF73">
+      <color rgba="${color_fanuc_00FF73}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_black">
+    <material name="black">
+      <color rgba="${color_fanuc_black}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_greyish">
+    <material name="greyish">
+      <color rgba="${color_fanuc_greyish}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_green">
+    <material name="green">
+      <color rgba="${color_fanuc_green}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_silver">
+    <material name="silver">
+      <color rgba="${color_fanuc_silver}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_blue">
+    <material name="blue">
+      <color rgba="${color_fanuc_blue}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_fanuc_red">
+    <material name="red">
+      <color rgba="${color_fanuc_red}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_invisible">
+    <material name="invisible">
+      <color rgba="${color_invisible}"/>
+    </material>
+  </xacro:macro>
+</robot>
